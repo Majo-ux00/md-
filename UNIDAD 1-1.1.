@@ -1,0 +1,93 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPgZBEumCdM7dlBfP3ZVQID",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Majo-ux00/md-/blob/main/UNIDAD%201-1.1.\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "NEF1B2GuAsnG",
+        "outputId": "bcd4db78-faf2-4c9a-807a-08f0c733f8ee"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "DataFrame original:\n",
+            "    Produto  Preço  Quantidade\n",
+            "0  Notebook   3500          10\n",
+            "1     Mouse     50          50\n",
+            "2   Teclado    150          30\n",
+            "3   Monitor   1200           5\n",
+            "\n",
+            "DataFrame com o valor total:\n",
+            "    Produto  Preço  Quantidade  Valor Total\n",
+            "0  Notebook   3500          10        35000\n",
+            "1     Mouse     50          50         2500\n",
+            "2   Teclado    150          30         4500\n",
+            "3   Monitor   1200           5         6000\n",
+            "\n",
+            "Valor total de todas as vendas: R$ 48000\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Importa a biblioteca Pandas\n",
+        "import pandas as pd\n",
+        "\n",
+        "# Cria um dicionário com dados de vendas\n",
+        "dados = {\n",
+        "    'Produto': ['Notebook', 'Mouse', 'Teclado', 'Monitor'],\n",
+        "    'Preço': [3500, 50, 150, 1200],\n",
+        "    'Quantidade': [10, 50, 30, 5]\n",
+        "}\n",
+        "\n",
+        "# Cria um DataFrame a partir do dicionário\n",
+        "df = pd.DataFrame(dados)\n",
+        "\n",
+        "# Exibe o DataFrame\n",
+        "print(\"DataFrame original:\")\n",
+        "print(df)\n",
+        "\n",
+        "# Calcula o valor total de vendas para cada produto\n",
+        "df['Valor Total'] = df['Preço'] * df['Quantidade']\n",
+        "\n",
+        "# Exibe o DataFrame atualizado\n",
+        "print(\"\\nDataFrame com o valor total:\")\n",
+        "print(df)\n",
+        "\n",
+        "# Calcula e exibe o valor total de todas as vendas\n",
+        "valor_total_vendas = df['Valor Total'].sum()\n",
+        "print(f\"\\nValor total de todas as vendas: R$ {valor_total_vendas}\")\n"
+      ]
+    }
+  ]
+}
